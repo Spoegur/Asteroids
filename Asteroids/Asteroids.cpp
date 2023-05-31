@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <assert.h>
 
 using namespace std;
 
@@ -14,13 +15,12 @@ int main()
     const int ScreenHeight = 600;
     
     Game game{ ScreenWidth, ScreenHeight, "Asteroids" };
+    game.Launch();
     SetTargetFPS(60);
 
-    Game* gameptr = NULL;
-
-    while (!WindowShouldClose()) {
+    while (!game.GameShouldClose()) {
         
-        gameptr->Tick();
+        game.Tick();
 
     }
     
