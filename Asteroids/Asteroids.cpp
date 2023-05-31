@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "Game.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -11,20 +12,18 @@ int main()
 {
     const int ScreenWidth = 800;
     const int ScreenHeight = 600;
-
-    InitWindow(ScreenWidth, ScreenHeight, "Asteroids");
+    
+    Game game{ ScreenWidth, ScreenHeight, "Asteroids" };
     SetTargetFPS(60);
 
-    while (!WindowShouldClose())
-    {
-        BeginDrawing();
-        ClearBackground(BLACK);
-        DrawFPS(10, 10);
-        EndDrawing();
+    Game* gameptr = NULL;
+
+    while (!WindowShouldClose()) {
+        
+        gameptr->Tick();
+
     }
-
-    CloseWindow();
-
+    
     return 0;
 }
 
