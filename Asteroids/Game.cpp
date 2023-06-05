@@ -37,7 +37,7 @@ void Game::Tick()
 	EndDrawing();
 }
 
-void Game::Launch()
+void Game::Init()
 {
 	ship.Load();
 	ship.SetSize();
@@ -71,4 +71,27 @@ void Game::OnDraw()
 
 void Game::OnUpdate()
 {
+}
+
+void Time::StartTimer(Timer* timer, float lifetime)
+{
+	if (timer != NULL) {
+		timer->Lifetime = lifetime;
+	}
+}
+
+void Time::UpdateTimer(Timer* timer)
+{
+	if (timer != NULL && timer->Lifetime > 0)
+	{
+		timer->Lifetime -= GetFrameTime();
+	}
+}
+
+bool Time::TimerDone(Timer* timer)
+{
+	if (timer != NULL)
+	{
+		return timer->Lifetime <= 0;
+	}
 }

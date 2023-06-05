@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "raymath.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -12,6 +13,8 @@ class Ship {
 public:
 
 	Ship();
+
+	~Ship() noexcept;
 
 	Vector2 Position;
 	Vector2 Speed;
@@ -27,8 +30,7 @@ public:
 
 private:
 
-	Vector2 ShipSize;
-	Vector2 Facing;
+	float Facing;
 	float ShipSpeed;
 	float ShipAcceleration;
 	float ShipRotationSpeed;

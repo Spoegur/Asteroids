@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "raymath.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -18,7 +19,7 @@ public:
 
 	void Tick();
 
-	void Launch();
+	void Init();
 
 	bool GameShouldClose() const;
 
@@ -32,3 +33,14 @@ private:
 	void OnDraw();
 	void OnUpdate();
 };
+
+typedef struct Time {
+	float Lifetime;
+
+	void StartTimer(Timer* time, float lifetime);
+
+	void UpdateTimer(Timer* time);
+
+	bool TimerDone(Timer* time);
+
+}Timer;

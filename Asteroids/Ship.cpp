@@ -11,10 +11,15 @@
 
 Ship::Ship()
 {
-	ShipSpeed = -250;
-	ShipAcceleration = -80 * GetFrameTime();
-	ShipMaxAcceleration = -350;
-	ShipRotationSpeed = -50;
+	ShipSpeed = 10;
+	ShipAcceleration = 0;
+	ShipMaxAcceleration = 50;
+	ShipRotationSpeed = 250;
+	ShipDrag = 0.2;
+}
+
+Ship::~Ship()
+{
 }
 
 void Ship::Load()
@@ -25,9 +30,7 @@ void Ship::Load()
 
 void Ship::SetSize()
 {
-	ShipSize.x = (float)texture.width;
-	ShipSize.y = (float)texture.height;
-	ShipRect = { 0, 0, ShipSize.x, ShipSize.y };
+	ShipRect = { 0, 0, (float)texture.width, (float) texture.height };
 	Centre = { (float)texture.width / 2, (float)texture.height / 2 };
 }
 
@@ -49,20 +52,40 @@ void Ship::UpdateShip()
 
 	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
 
-		Position.y += ShipSpeed * GetFrameTime();
+		if (ShipAcceleration < ShipMaxAcceleration) {
+			ShipAcceleration += 2 * (ShipDrag * 2);
+		}
+		else if (ShipAcceleration > ShipMaxAcceleration){
+			ShipAcceleration = ShipMaxAcceleration;
+		}
 	}
-	else if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
+	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
 
-		Position.y -= ShipSpeed * GetFrameTime();
+		if (ShipAcceleration > 0) {
+			ShipAcceleration -= 0.8;
+		}
+		else if (ShipAcceleration < 0) {
+			ShipAcceleration = 0;
+		}
 	}
-	else if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
+	if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
 
-		Rotation -= 4;
+		Rotation += ShipRotationSpeed * GetFrameTime();
 	}
-	else if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
+	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
 
-		Rotation += 4;
+		Rotation -= ShipRotationSpeed * GetFrameTime();
 	}
+
+	if (Rotation > 360) {
+		Rotation -= 360;
+	}
+	if (Rotation < -360) {
+		Rotation += 360;
+	}
+	
+	Position.y -= Speed.y * ShipAcceleration;
+	Position.x += Speed.x * ShipAcceleration;
 }
 
 void Ship::OnDrawShip()
@@ -73,6 +96,7 @@ void Ship::OnDrawShip()
 
 void Ship::OnUpdateShip()
 {
-
+	Speed.x = sin(Rotation * DEG2RAD) * ShipSpeed * GetFrameTime();
+	Speed.y = cos(Rotation * DEG2RAD) * ShipSpeed * GetFrameTime();
 }
 

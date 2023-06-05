@@ -1,4 +1,23 @@
-﻿  Game.cpp
+﻿  Asteroids.cpp
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(40,18): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(42,19): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(44,17): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroids.cpp(18,10): error C2039: 'Launch': is not a member of 'Game'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(11,7): message : see declaration of 'Game'
+  Game.cpp
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(40,18): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(42,19): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(44,17): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(76,12): error C2511: 'void Time::StartTimer(Timer *,float)': overloaded member function not found in 'Time'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(37,16): message : see declaration of 'Time'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(83,12): error C2511: 'void Time::UpdateTimer(Timer *)': overloaded member function not found in 'Time'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(37,16): message : see declaration of 'Time'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(91,12): error C2511: 'bool Time::TimerDone(Timer *)': overloaded member function not found in 'Time'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(37,16): message : see declaration of 'Time'
   Ship.cpp
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(40,18): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(42,19): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.h(44,17): error C2061: syntax error: identifier 'Timer'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Ship.cpp(18,16): warning C4305: '=': truncation from 'double' to 'float'
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Ship.cpp(65,27): warning C4305: '-=': truncation from 'double' to 'float'
   Generating Code...
-  Asteroids.vcxproj -> D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\x64\Debug\Asteroids.exe

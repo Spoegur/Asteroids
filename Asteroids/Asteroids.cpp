@@ -11,8 +11,8 @@ using namespace std;
 
 int main()
 {
-    const int ScreenWidth = 800;
-    const int ScreenHeight = 600;
+    const int ScreenWidth = 1000;
+    const int ScreenHeight = 800;
     
     Game game{ ScreenWidth, ScreenHeight, "Asteroids" };
     game.Launch();
