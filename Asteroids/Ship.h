@@ -30,6 +30,7 @@ public:
 
 private:
 
+	bool startTimer;
 	float Facing;
 	float ShipSpeed;
 	float ShipAcceleration;

@@ -26,7 +26,7 @@ void Timer::StartTimer(Timer* timer, float lifetime)
 {
 	if (timer != NULL) {
 		timer->Lifetime = lifetime;
-		
+		std::cout << "The timer has started at is currently at: " << timer->Lifetime << std::endl;
 	}
 }
 
@@ -34,9 +34,9 @@ void Timer::StartTimer(Timer* timer, float lifetime)
 void Timer::UpdateTimer(Timer* timer)
 {
 	// Subtracts the current frametime from the timer for exceptions sake
-	if (timer != NULL && timer->Lifetime > 0) {
-		timer->Lifetime -= GetFrameTime();
-		std::cout << "Time since last frame drawn: " << GetFrameTime() << std::endl;
+	if (timer != NULL) {
+		timer->Lifetime += GetFrameTime();
+		std::cout << "The timer is currently at: " << timer->Lifetime << std::endl;
 	}
 }
 
@@ -44,6 +44,11 @@ void Timer::UpdateTimer(Timer* timer)
 bool Timer::TimerDone(Timer* timer)
 {
 	if (timer != NULL) {
-		return timer->Lifetime <= 0.5f;
+		return timer->Lifetime <= 0;
 	}
+}
+
+float Timer::getTime(Timer* timer)
+{
+	return timer->Lifetime;
 }

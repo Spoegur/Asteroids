@@ -19,6 +19,7 @@ Ship::Ship()
 	ShipMaxAcceleration = 50;
 	ShipRotationSpeed = 250;
 	ShipDrag = 0.2f;
+	startTimer = true;
 }
 
 Ship::~Ship()
@@ -51,20 +52,28 @@ void Ship::DrawShip()
 
 void Ship::UpdateShip()
 {
-	Timer shipTimer = { 0 };
-	float shipLife = 1.0f;
+	static Timer shipTimer = { 0 };
+	float shipLife = 0;
 
-	timer.StartTimer(&shipTimer, shipLife);
-	
+	if (ShipAcceleration > 0 && startTimer == true) {
+		timer.StartTimer(&shipTimer, shipLife);
+		startTimer = false;
+	}
 
 	OnUpdateShip();
 
 	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
 
-		if (ShipAcceleration < ShipMaxAcceleration) {
+		if (Facing != Rotation) {
+			ShipAcceleration -= timer.getTime(&shipTimer);
+			if (ShipAcceleration <= 0) {
+				Facing = Rotation;
+			}
+		}
+		else if (ShipAcceleration < ShipMaxAcceleration) {
 			ShipAcceleration += 2 * (ShipDrag * 2);
 		}
-		else if (ShipAcceleration > ShipMaxAcceleration){
+		if (ShipAcceleration > ShipMaxAcceleration){
 			ShipAcceleration = ShipMaxAcceleration;
 		}
 	}
@@ -93,15 +102,16 @@ void Ship::UpdateShip()
 		Rotation += 360;
 	}
 	
-	timer.UpdateTimer(&shipTimer);
+	if (startTimer == false) {
+		timer.UpdateTimer(&shipTimer);
+	}
+	
+	if (ShipAcceleration <= 0) {
+		startTimer = true;
+	}
 
-	if (!timer.TimerDone(&shipTimer)) {
-		Position.y -= Speed.y * ShipAcceleration;
-		Position.x += Speed.x * ShipAcceleration;
-	}
-	if (timer.TimerDone(&shipTimer)) {
-		std::cout << "Timer is done         " << std::endl;
-	}
+	Position.y -= Speed.y * ShipAcceleration;
+	Position.x += Speed.x * ShipAcceleration;
 }
 
 void Ship::OnDrawShip()
@@ -112,7 +122,7 @@ void Ship::OnDrawShip()
 
 void Ship::OnUpdateShip()
 {
-	Speed.x = sin(Rotation * DEG2RAD) * ShipSpeed * GetFrameTime();
-	Speed.y = cos(Rotation * DEG2RAD) * ShipSpeed * GetFrameTime();
+	Speed.x = sin(Facing * DEG2RAD) * ShipSpeed * GetFrameTime();
+	Speed.y = cos(Facing * DEG2RAD) * ShipSpeed * GetFrameTime();
 }
 

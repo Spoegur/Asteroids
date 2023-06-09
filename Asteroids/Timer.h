@@ -23,5 +23,6 @@ public:
 	void StartTimer(Timer* timer, float lifetime);
 	void UpdateTimer(Timer* timer);
 	bool TimerDone(Timer* timer);
+	float getTime(Timer* timer);
 
 }Timer;

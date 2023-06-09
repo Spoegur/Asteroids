@@ -53,9 +53,6 @@ void Game::Draw()
 {
 	OnDraw();
 	
-	ClearBackground(BLACK);
-	DrawFPS(10, 10);
-
 	ship.DrawShip();
 }
 
@@ -68,6 +65,8 @@ void Game::Update()
 
 void Game::OnDraw()
 {
+	ClearBackground(BLACK);
+	DrawFPS(10, 10);
 }
 
 void Game::OnUpdate()
