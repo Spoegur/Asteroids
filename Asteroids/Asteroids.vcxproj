@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Tomer\Documents\GitHub\raylib\out\build\x64-Debug\raylib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Tomer\Documents\GitHub\raylib\out\build\x64-Debug\raylib\include;D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\raylib\out\build\x64-Debug\raylib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Tomer\Documents\GitHub\raylib\out\build\x64-Debug\raylib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Tomer\Documents\GitHub\raylib\out\build\x64-Debug\raylib;D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\raylib\out\build\x64-Debug\raylib</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;raylib.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -133,10 +133,12 @@
     <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

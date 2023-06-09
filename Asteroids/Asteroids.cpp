@@ -1,5 +1,7 @@
 #include "raylib.h"
 #include "Game.h"
+#include "Ship.h"
+#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -11,11 +13,11 @@ using namespace std;
 
 int main()
 {
-    const int ScreenWidth = 1000;
+    const int ScreenWidth = 1400;
     const int ScreenHeight = 800;
     
     Game game{ ScreenWidth, ScreenHeight, "Asteroids" };
-    game.Launch();
+    game.Init();
     SetTargetFPS(60);
 
     while (!game.GameShouldClose()) {

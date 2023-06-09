@@ -33,14 +33,3 @@ private:
 	void OnDraw();
 	void OnUpdate();
 };
-
-typedef struct Time {
-	float Lifetime;
-
-	void StartTimer(Timer* time, float lifetime);
-
-	void UpdateTimer(Timer* time);
-
-	bool TimerDone(Timer* time);
-
-}Timer;

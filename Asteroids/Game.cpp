@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Ship.h"
 #include "raymath.h"
+#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -33,7 +34,6 @@ void Game::Tick()
 	BeginDrawing();
 	Update();
 	Draw();
-	ship.DrawShip();
 	EndDrawing();
 }
 
@@ -56,12 +56,13 @@ void Game::Draw()
 	ClearBackground(BLACK);
 	DrawFPS(10, 10);
 
+	ship.DrawShip();
 }
 
 void Game::Update()
 {
 	OnUpdate();
-
+	
 	ship.UpdateShip();
 }
 
@@ -73,25 +74,3 @@ void Game::OnUpdate()
 {
 }
 
-void Time::StartTimer(Timer* timer, float lifetime)
-{
-	if (timer != NULL) {
-		timer->Lifetime = lifetime;
-	}
-}
-
-void Time::UpdateTimer(Timer* timer)
-{
-	if (timer != NULL && timer->Lifetime > 0)
-	{
-		timer->Lifetime -= GetFrameTime();
-	}
-}
-
-bool Time::TimerDone(Timer* timer)
-{
-	if (timer != NULL)
-	{
-		return timer->Lifetime <= 0;
-	}
-}

@@ -2,6 +2,7 @@
 #include "Ship.h"
 #include "raylib.h"
 #include "raymath.h"
+#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -9,13 +10,15 @@
 #include <iostream>
 #include <assert.h>
 
+Timer timer{};
+
 Ship::Ship()
 {
 	ShipSpeed = 10;
 	ShipAcceleration = 0;
 	ShipMaxAcceleration = 50;
 	ShipRotationSpeed = 250;
-	ShipDrag = 0.2;
+	ShipDrag = 0.2f;
 }
 
 Ship::~Ship()
@@ -48,6 +51,12 @@ void Ship::DrawShip()
 
 void Ship::UpdateShip()
 {
+	Timer shipTimer = { 0 };
+	float shipLife = 1.0f;
+
+	timer.StartTimer(&shipTimer, shipLife);
+	
+
 	OnUpdateShip();
 
 	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
@@ -62,7 +71,7 @@ void Ship::UpdateShip()
 	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
 
 		if (ShipAcceleration > 0) {
-			ShipAcceleration -= 0.8;
+			ShipAcceleration -= 0.8f;
 		}
 		else if (ShipAcceleration < 0) {
 			ShipAcceleration = 0;
@@ -84,14 +93,21 @@ void Ship::UpdateShip()
 		Rotation += 360;
 	}
 	
-	Position.y -= Speed.y * ShipAcceleration;
-	Position.x += Speed.x * ShipAcceleration;
+	timer.UpdateTimer(&shipTimer);
+
+	if (!timer.TimerDone(&shipTimer)) {
+		Position.y -= Speed.y * ShipAcceleration;
+		Position.x += Speed.x * ShipAcceleration;
+	}
+	if (timer.TimerDone(&shipTimer)) {
+		std::cout << "Timer is done         " << std::endl;
+	}
 }
 
 void Ship::OnDrawShip()
 {
 	Destination = { Position.x, Position.y, ShipRect.width, ShipRect.height };
-	DrawTexturePro(texture, ShipRect, Destination, Centre, Rotation, WHITE);
+	DrawTexturePro(texture, ShipRect, Destination, Centre, Rotation, RED);
 }
 
 void Ship::OnUpdateShip()
