@@ -10,7 +10,7 @@
 #include <iostream>
 #include <assert.h>
 
-Timer timer{};
+Timer timer;
 
 Ship::Ship()
 {
@@ -68,6 +68,7 @@ void Ship::UpdateShip()
 			ShipAcceleration -= timer.getTime(&shipTimer);
 			if (ShipAcceleration <= 0) {
 				Facing = Rotation;
+				ShipAcceleration = 0;
 			}
 		}
 		else if (ShipAcceleration < ShipMaxAcceleration) {
@@ -108,6 +109,20 @@ void Ship::UpdateShip()
 	
 	if (ShipAcceleration <= 0) {
 		startTimer = true;
+	}
+
+	if (Position.x > GetScreenWidth() + texture.height) {
+		Position.x = -(texture.height);
+	}
+	else if (Position.x < -(texture.height)) {
+		Position.x = GetScreenWidth() + texture.height;
+	}
+
+	if (Position.y > GetScreenHeight() + texture.height) {
+		Position.y = -(texture.height);
+	}
+	else if (Position.y < -(texture.height)) {
+		Position.y = GetScreenHeight() + texture.height;
 	}
 
 	Position.y -= Speed.y * ShipAcceleration;

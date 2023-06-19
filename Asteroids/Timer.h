@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _TIMER_
+#define _TIMER_
 #include "raylib.h"
 #include "raymath.h"
 #include <list>
@@ -26,3 +28,4 @@ public:
 	float getTime(Timer* timer);
 
 }Timer;
+#endif // _TIMER_

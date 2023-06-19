@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _GAME_
+#define _GAME_
 #include "raylib.h"
 #include "raymath.h"
 #include <list>
@@ -33,3 +35,4 @@ private:
 	void OnDraw();
 	void OnUpdate();
 };
+#endif // _GAME_

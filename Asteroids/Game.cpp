@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "raylib.h"
 #include "Ship.h"
+#include "Asteroid.h"
 #include "raymath.h"
 #include "Timer.h"
 #include <list>
@@ -10,11 +11,12 @@
 #include <iostream>
 #include <assert.h>
 
-Ship ship{};
+Ship ship;
+Asteroid asteroid;
 
 Game::Game()
 {
-
+	
 }
 
 Game::Game(int screenWidth, int screenHeight, std::string title)
@@ -42,6 +44,10 @@ void Game::Init()
 	ship.Load();
 	ship.SetSize();
 	ship.SetPosition();
+
+	asteroid.Load();
+	asteroid.SetAsteroidSize();
+	asteroid.SetAsteroidPosition();
 }
 
 bool Game::GameShouldClose() const
@@ -54,6 +60,7 @@ void Game::Draw()
 	OnDraw();
 	
 	ship.DrawShip();
+	asteroid.DrawAsteroid();
 }
 
 void Game::Update()
@@ -61,6 +68,7 @@ void Game::Update()
 	OnUpdate();
 	
 	ship.UpdateShip();
+	
 }
 
 void Game::OnDraw()

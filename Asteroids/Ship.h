@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _SHIP_
+#define _SHIP_
 #include "raylib.h"
 #include "raymath.h"
 #include <list>
@@ -47,3 +49,4 @@ private:
 	void OnDrawShip();
 	void OnUpdateShip();
 };
+#endif // _SHIP_

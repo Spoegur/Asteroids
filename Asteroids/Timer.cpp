@@ -26,7 +26,6 @@ void Timer::StartTimer(Timer* timer, float lifetime)
 {
 	if (timer != NULL) {
 		timer->Lifetime = lifetime;
-		std::cout << "The timer has started at is currently at: " << timer->Lifetime << std::endl;
 	}
 }
 
@@ -36,7 +35,6 @@ void Timer::UpdateTimer(Timer* timer)
 	// Subtracts the current frametime from the timer for exceptions sake
 	if (timer != NULL) {
 		timer->Lifetime += GetFrameTime();
-		std::cout << "The timer is currently at: " << timer->Lifetime << std::endl;
 	}
 }
 
