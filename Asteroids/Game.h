@@ -28,6 +28,8 @@ public:
 	Game(const Game& other) = delete;
 	Game& operator=(const Game& other) = delete;
 
+	bool EntityMax;
+
 protected:
 	void Draw();
 	void Update();

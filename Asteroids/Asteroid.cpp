@@ -13,13 +13,12 @@ Asteroid::Asteroid()
 {
 	std::srand((unsigned)time(NULL));
 	Asteroid::ID = rand() % 3;
+	Asteroid::Rotation = rand() % 360;
+	Asteroid::AsteroidSpeed = 100 + (rand() % 201);
+	
 }
 
 Asteroid::~Asteroid() noexcept
-{
-}
-
-void Asteroid::SetStatus()
 {
 }
 
@@ -44,32 +43,63 @@ void Asteroid::SetAsteroidSize()
 	Asteroid::AsteroidHeight = Asteroid::AsteroidTexture.height;
 	Asteroid::AsteroidWidth = Asteroid::AsteroidTexture.width;
 
-	Asteroid::AsteroidRect = { 1, 1, (float)Asteroid::AsteroidTexture.width, (float)Asteroid::AsteroidTexture.height };
-	Asteroid::AsteroidCentre = { (float)Asteroid::AsteroidTexture.width / 2, (float)Asteroid::AsteroidTexture.height / 2 };
+	Asteroid::AsteroidRect = { 1, 1, (float)Asteroid::AsteroidWidth, (float)Asteroid::AsteroidHeight };
+	Asteroid::AsteroidCentre = { (float)Asteroid::AsteroidWidth / 2, (float)Asteroid::AsteroidHeight / 2 };
+
+	Asteroid::AsteroidRadius = Asteroid::AsteroidWidth / 2;
 }
 
-Vector2 Asteroid::SetAsteroidPosition()
+Vector2 Asteroid::SetAsteroidPosition(Ship player)
 {
-	Asteroid::Position = { (float)(GetScreenWidth() / 2), (float)(GetScreenHeight() / 2) };
+	Asteroid::Position = { (float)(rand() % (GetScreenWidth() - (int)player.ShipRect.width)), (float)(rand() % (GetScreenHeight() - (int)player.ShipRect.height))};
+	Asteroid::Rotation = rand() % 360;
+	Asteroid::Speed.x = sin(Asteroid::Rotation * DEG2RAD) * Asteroid::AsteroidSpeed;
+	Asteroid::Speed.y = cos(Asteroid::Rotation * DEG2RAD) * Asteroid::AsteroidSpeed;
 	return Asteroid::Position;
 }
 
-void Asteroid::DrawAsteroid()
+void Asteroid::DrawAsteroid(std::vector <Asteroid> list, Asteroid meteor)
 {
 	OnDrawAsteroid();
+
+	for (int i = 0; i < list.size(); i++) {
+		list[i].AsteroidDest = { list[i].Position.x, list[i].Position.y, list[i].AsteroidRect.width, list[i].AsteroidRect.height };
+		DrawTexturePro(list[i].AsteroidTexture, list[i].AsteroidRect, list[i].AsteroidDest, list[i].AsteroidCentre, list[i].Rotation, RED);
+	}
+
+	//Asteroid::AsteroidDest = { Asteroid::Position.x, Asteroid::Position.y, Asteroid::AsteroidRect.width, Asteroid::AsteroidRect.height };
+	//DrawTexturePro(Asteroid::AsteroidTexture, Asteroid::AsteroidRect, Asteroid::AsteroidDest, Asteroid::AsteroidCentre, 1, RED);
 }
 
-void Asteroid::UpdateAsteroid()
+void Asteroid::UpdateAsteroid(std::vector <Asteroid> &list)
 {
 	OnUpdateAsteroid();
+
+	for (int i = 0; i < list.size(); i++) {
+		list[i].Position.y -= list[i].Speed.y * GetFrameTime();
+		list[i].Position.x += list[i].Speed.x * GetFrameTime();
+
+		if (list[i].Position.x > GetScreenWidth() + list[i].AsteroidRadius) {
+			list[i].Position.x = -(list[i].AsteroidRadius);
+		}
+		else if (list[i].Position.x < -(list[i].AsteroidRadius)) {
+			list[i].Position.x = GetScreenWidth() + list[i].AsteroidRadius;
+		}
+		if (list[i].Position.y > GetScreenHeight() + list[i].AsteroidRadius) {
+			list[i].Position.y = -(list[i].AsteroidRadius);
+		}
+		else if (list[i].Position.y < -(list[i].AsteroidRadius)) {
+			list[i].Position.y = GetScreenHeight() + list[i].AsteroidRadius;
+		}
+	}
 }
 
 void Asteroid::OnDrawAsteroid()
 {
-	Asteroid::AsteroidDest = { Asteroid::Position.x, Asteroid::Position.y, Asteroid::AsteroidRect.width, Asteroid::AsteroidRect.height };
-	DrawTexturePro(Asteroid::AsteroidTexture, Asteroid::AsteroidRect, Asteroid::AsteroidDest, Asteroid::AsteroidCentre, 1, RED);
 }
 
 void Asteroid::OnUpdateAsteroid()
 {
-}
+	Asteroid::ID = rand() % 3;
+	Asteroid::AsteroidSpeed = 100 + (rand() % 201);
+}																				   

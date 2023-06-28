@@ -3,6 +3,7 @@
 #define _ASTER_
 #include "raylib.h"
 #include "raymath.h"
+#include "Ship.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -21,13 +22,12 @@ public:
 	Vector2 Speed;
 	float Rotation;
 
-	void DrawAsteroid();
-	void UpdateAsteroid();
+	void DrawAsteroid(std::vector <Asteroid> list, Asteroid meteor);
+	void UpdateAsteroid(std::vector <Asteroid> &list);
 
-	Vector2 SetAsteroidPosition();
+	Vector2 SetAsteroidPosition(Ship ship);
 	void SetAsteroidSize();
 	void Load();
-	void SetStatus();
 
 private:
 	
@@ -37,8 +37,6 @@ private:
 	float AsteroidRadius;
 	float AsteroidWidth;
 	float AsteroidHeight;
-	float AsteroidMaxspeed;
-	float AsteroidMinspeed;
 	int ID;
 	bool Destroyed;
 

@@ -13,6 +13,7 @@
 
 Ship ship;
 Asteroid asteroid;
+std::vector <Asteroid> asteroids;
 
 Game::Game()
 {
@@ -43,11 +44,7 @@ void Game::Init()
 {
 	ship.Load();
 	ship.SetSize();
-	ship.SetPosition();
-
-	asteroid.Load();
-	asteroid.SetAsteroidSize();
-	asteroid.SetAsteroidPosition();
+	ship.SetPosition();	
 }
 
 bool Game::GameShouldClose() const
@@ -60,7 +57,7 @@ void Game::Draw()
 	OnDraw();
 	
 	ship.DrawShip();
-	asteroid.DrawAsteroid();
+	asteroid.DrawAsteroid(asteroids, asteroid);
 }
 
 void Game::Update()
@@ -68,7 +65,15 @@ void Game::Update()
 	OnUpdate();
 	
 	ship.UpdateShip();
-	
+
+	if (EntityMax == false) {
+		asteroid.Load();
+		asteroid.SetAsteroidSize();
+		asteroid.SetAsteroidPosition(ship);
+		asteroids.push_back(asteroid);
+	}
+
+	asteroid.UpdateAsteroid(asteroids);
 }
 
 void Game::OnDraw()
@@ -79,5 +84,11 @@ void Game::OnDraw()
 
 void Game::OnUpdate()
 {
+	if (asteroids.size() == 5) {
+		EntityMax = true;
+	}
+	else if (asteroids.size() < 5) {
+		EntityMax = false;
+	}
 }
 

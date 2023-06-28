@@ -21,6 +21,8 @@ public:
 	Vector2 Position;
 	Vector2 Speed;
 	Vector2 Centre;
+	Rectangle ShipRect;
+	Rectangle Destination;
 	float Rotation;
 
 	void DrawShip();
@@ -42,10 +44,7 @@ private:
 	int ShootCooldown;
 	Texture2D texture;
 	Image image;
-	Rectangle ShipRect;
-	Rectangle Destination;
-
-
+	
 	void OnDrawShip();
 	void OnUpdateShip();
 };
