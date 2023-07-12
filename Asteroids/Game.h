@@ -29,12 +29,22 @@ public:
 	Game& operator=(const Game& other) = delete;
 
 	bool EntityMax;
+	bool Shoot;
 
 protected:
 	void Draw();
 	void Update();
+	void GameOver();
 private:
 	void OnDraw();
 	void OnUpdate();
+};
+
+class Lives {
+
+public:
+	void LoadLives();
+	Texture2D Livestxt;
+	Vector2 Livespos;
 };
 #endif // _GAME_

@@ -40,8 +40,8 @@ void Asteroid::Load()
 
 void Asteroid::SetAsteroidSize()
 {
-	Asteroid::AsteroidHeight = Asteroid::AsteroidTexture.height;
-	Asteroid::AsteroidWidth = Asteroid::AsteroidTexture.width;
+	Asteroid::AsteroidHeight = Asteroid::AsteroidTexture.height / 1.1;
+	Asteroid::AsteroidWidth = Asteroid::AsteroidTexture.width / 1.1;
 
 	Asteroid::AsteroidRect = { 1, 1, (float)Asteroid::AsteroidWidth, (float)Asteroid::AsteroidHeight };
 	Asteroid::AsteroidCentre = { (float)Asteroid::AsteroidWidth / 2, (float)Asteroid::AsteroidHeight / 2 };
@@ -58,24 +58,22 @@ Vector2 Asteroid::SetAsteroidPosition(Ship player)
 	return Asteroid::Position;
 }
 
-void Asteroid::DrawAsteroid(std::vector <Asteroid> list, Asteroid meteor)
+void Asteroid::DrawAsteroid(std::vector <Asteroid> list)
 {
 	OnDrawAsteroid();
 
 	for (int i = 0; i < list.size(); i++) {
 		list[i].AsteroidDest = { list[i].Position.x, list[i].Position.y, list[i].AsteroidRect.width, list[i].AsteroidRect.height };
-		DrawTexturePro(list[i].AsteroidTexture, list[i].AsteroidRect, list[i].AsteroidDest, list[i].AsteroidCentre, list[i].Rotation, RED);
+		DrawTexturePro(list[i].AsteroidTexture, list[i].AsteroidRect, list[i].AsteroidDest, list[i].AsteroidCentre, list[i].Rotation, WHITE);
 	}
-
-	//Asteroid::AsteroidDest = { Asteroid::Position.x, Asteroid::Position.y, Asteroid::AsteroidRect.width, Asteroid::AsteroidRect.height };
-	//DrawTexturePro(Asteroid::AsteroidTexture, Asteroid::AsteroidRect, Asteroid::AsteroidDest, Asteroid::AsteroidCentre, 1, RED);
 }
 
-void Asteroid::UpdateAsteroid(std::vector <Asteroid> &list)
+void Asteroid::UpdateAsteroid(std::vector <Asteroid> &list, Ship &player)
 {
 	OnUpdateAsteroid();
 
 	for (int i = 0; i < list.size(); i++) {
+
 		list[i].Position.y -= list[i].Speed.y * GetFrameTime();
 		list[i].Position.x += list[i].Speed.x * GetFrameTime();
 
@@ -90,6 +88,12 @@ void Asteroid::UpdateAsteroid(std::vector <Asteroid> &list)
 		}
 		else if (list[i].Position.y < -(list[i].AsteroidRadius)) {
 			list[i].Position.y = GetScreenHeight() + list[i].AsteroidRadius;
+		}
+
+		if (CheckCollisionCircles(list[i].Position, list[i].AsteroidRadius, player.Position, player.ShipRadius))
+		{
+			list.erase(list.begin() + i);
+			player.lives--;
 		}
 	}
 }

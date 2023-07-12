@@ -24,6 +24,9 @@ public:
 	Rectangle ShipRect;
 	Rectangle Destination;
 	float Rotation;
+	float ShipSpeed;
+	float ShipRadius;
+	float lives;
 
 	void DrawShip();
 	void UpdateShip();
@@ -36,7 +39,6 @@ private:
 
 	bool startTimer;
 	float Facing;
-	float ShipSpeed;
 	float ShipAcceleration;
 	float ShipRotationSpeed;
 	float ShipMaxAcceleration;

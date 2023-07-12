@@ -20,6 +20,7 @@ Ship::Ship()
 	ShipRotationSpeed = 250;
 	ShipDrag = 0.2f;
 	startTimer = true;
+	lives = 3;
 }
 
 Ship::~Ship()
@@ -36,6 +37,8 @@ void Ship::SetSize()
 {
 	ShipRect = { 0, 0, (float)texture.width, (float) texture.height };
 	Centre = { (float)texture.width / 2, (float)texture.height / 2 };
+
+	ShipRadius = (float)texture.width / 2;
 }
 
 Vector2 Ship::SetPosition()
@@ -127,12 +130,14 @@ void Ship::UpdateShip()
 
 	Position.y -= Speed.y * ShipAcceleration;
 	Position.x += Speed.x * ShipAcceleration;
+
+
 }
 
 void Ship::OnDrawShip()
 {
 	Destination = { Position.x, Position.y, ShipRect.width, ShipRect.height };
-	DrawTexturePro(texture, ShipRect, Destination, Centre, Rotation, RED);
+	DrawTexturePro(texture, ShipRect, Destination, Centre, Rotation, WHITE);
 }
 
 void Ship::OnUpdateShip()

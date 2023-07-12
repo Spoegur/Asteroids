@@ -1,8 +1,15 @@
 ﻿  Asteroid.cpp
 D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(16,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(17,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(43,54): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(44,53): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(43,62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(44,60): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(55,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(104,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Asteroid.cpp(108,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Game.cpp
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(75,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(83,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(106,72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(106,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\Game.cpp(143,35): warning C4244: 'argument': conversion from 'float' to 'const __int64', possible loss of data
+  Generating Code...
   Asteroids.vcxproj -> D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\x64\Debug\Asteroids.exe

@@ -22,8 +22,8 @@ public:
 	Vector2 Speed;
 	float Rotation;
 
-	void DrawAsteroid(std::vector <Asteroid> list, Asteroid meteor);
-	void UpdateAsteroid(std::vector <Asteroid> &list);
+	void DrawAsteroid(std::vector <Asteroid> list);
+	void UpdateAsteroid(std::vector <Asteroid> &list, Ship &ship);
 
 	Vector2 SetAsteroidPosition(Ship ship);
 	void SetAsteroidSize();
