@@ -9,6 +9,8 @@
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include "Timer.h"
+#include "Game.h"
 
 class Ship {
 
@@ -18,35 +20,41 @@ public:
 
 	~Ship() noexcept;
 
-	Vector2 Position;
-	Vector2 Speed;
-	Vector2 Centre;
-	Rectangle ShipRect;
-	Rectangle Destination;
-	float Rotation;
-	float ShipSpeed;
-	float ShipRadius;
-	float lives;
+	Vector2 shipPosition;
+	Vector2 vecShipSpeed;
+	Vector2 shipCentre;
+	Rectangle shipRect;
+	Rectangle destination;
+	float shipRotation;
+	float shipSpeed;
+	float shipRadius;
+	float shipLives;
+	bool destroyed;
 
 	void DrawShip();
-	void UpdateShip();
+	void UpdateShip(Timer timer, std::vector <Lives> &rVecLives);
 
 	Vector2 SetPosition();;
 	void SetSize();
 	void Load();
+	void ShipReset();
 
 private:
 
-	bool startTimer;
-	float Facing;
-	float ShipAcceleration;
-	float ShipRotationSpeed;
-	float ShipMaxAcceleration;
-	float ShipDrag;
-	int ShootCooldown;
-	Texture2D texture;
-	Image image;
-	
+	std::vector <Texture2D> mVecDamageTxt;
+
+	bool mStartTimer;
+	float mFacing;
+	float mShipAcceleration;
+	float mShipRotationSpeed;
+	float mShipMaxAcceleration;
+	float mShipDrag;
+
+	Texture2D mShipTexture;
+	Texture2D mDamage1;
+	Texture2D mDamage2;
+	Texture2D mDamage3;
+
 	void OnDrawShip();
 	void OnUpdateShip();
 };

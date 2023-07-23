@@ -28,13 +28,12 @@ public:
 	Game(const Game& other) = delete;
 	Game& operator=(const Game& other) = delete;
 
-	bool EntityMax;
+	bool entityMax;
 	bool Shoot;
 
 protected:
 	void Draw();
 	void Update();
-	void GameOver();
 private:
 	void OnDraw();
 	void OnUpdate();
@@ -44,7 +43,7 @@ class Lives {
 
 public:
 	void LoadLives();
-	Texture2D Livestxt;
-	Vector2 Livespos;
+	Texture2D livesTxt;
+	Vector2 livesPos;
 };
 #endif // _GAME_

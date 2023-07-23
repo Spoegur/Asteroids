@@ -3,13 +3,14 @@
 #define _ASTER_
 #include "raylib.h"
 #include "raymath.h"
-#include "Ship.h"
 #include <list>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include "Ship.h"
+#include "Bullet.h"
 
 class Asteroid {
 
@@ -18,39 +19,38 @@ public:
 	Asteroid();
 	~Asteroid() noexcept;
 
-	Vector2 Position;
-	Vector2 Speed;
-	float Rotation;
+	Vector2 asteroidPosition;
+	Vector2 vecAsteroidSpeed;
+	float asteroidRotation;
 
-	void DrawAsteroid(std::vector <Asteroid> list);
-	void UpdateAsteroid(std::vector <Asteroid> &list, Ship &ship);
+	void DrawAsteroid(std::vector <Asteroid> vecAsteroid);
+	void UpdateAsteroid(std::vector <Asteroid> &rVecAsteroid, Ship &rPlayer, std::vector <Bullet> &rVecBullets);
 
-	Vector2 SetAsteroidPosition(Ship ship);
+	Vector2 SetAsteroidPosition(Ship player);
 	void SetAsteroidSize();
 	void Load();
+	void SpawnAsteroid();
+	void AsteroidSplit(Asteroid &rAsteroid);
 
 private:
 	
 	std::vector<Texture2D> textures;
 
-	float AsteroidSpeed;
-	float AsteroidRadius;
-	float AsteroidWidth;
-	float AsteroidHeight;
-	int ID;
-	bool Destroyed;
+	float mAsteroidSpeed;
+	float mAsteroidRadius;
+	float mAsteroidWidth;
+	float mAsteroidHeight;
+	int mAsteroidID;
+	bool mDestroyed;
 
-	Rectangle AsteroidRect;
-	Rectangle AsteroidDest;
-	Vector2 AsteroidCentre;
+	Rectangle mAsteroidRect;
+	Rectangle mAsteroidDest;
+	Vector2 mAsteroidCentre;
 
-	Texture2D BigAsteroidtxt;
-	Texture2D MediumAsteroidtxt;
-	Texture2D SmallAsteroidtxt;
-	Texture2D AsteroidTexture;
-	Image BigAsteroidimg;
-	Image MediumAsteroidimg;
-	Image SmallAsteroidimg;
+	Texture2D mBigAsteroidTxt;
+	Texture2D mMediumAsteroidTxt;
+	Texture2D mSmallAsteroidTxt;
+	Texture2D mAsteroidTxt;
 
 	void OnDrawAsteroid();
 	void OnUpdateAsteroid();

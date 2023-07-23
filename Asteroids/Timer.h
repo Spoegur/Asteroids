@@ -20,9 +20,10 @@ public:
 
 	~Timer() noexcept;
 
-	float Lifetime;
+	float lifetime;
 
-	void StartTimer(Timer* timer, float lifetime);
+	void StartTimer(Timer* timer, float objLifetime);
+	void UpdateStopWatch(Timer* timer);
 	void UpdateTimer(Timer* timer);
 	bool TimerDone(Timer* timer);
 	float getTime(Timer* timer);

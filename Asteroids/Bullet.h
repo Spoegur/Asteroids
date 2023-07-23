@@ -3,13 +3,13 @@
 #define _BULLET_
 #include "raylib.h"
 #include "raymath.h"
-#include "Ship.h"
 #include <list>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include "Ship.h"
 
 class Bullet {
 
@@ -18,12 +18,13 @@ public:
 	Bullet();
 	~Bullet() noexcept;
 
-	Vector2 BulletPos;
-	Vector2 BulletSpeed;
-	float BulletRot;
+	Vector2 bulletPos;
+	Vector2 bulletSpeed;
+	float bulletRot;
+	float bulletRad;
 
-	void DrawBullet(std::vector <Bullet> bullets);
-	void UpdateBullet(std::vector <Bullet> &bullets);
+	void DrawBullet(std::vector <Bullet> vecBullets);
+	void UpdateBullet(std::vector <Bullet> &rVecBullets);
 	void Shoot(Ship player);
 
 	void SetBulletPos(Ship player);
@@ -33,18 +34,15 @@ public:
 
 private:
 	
-	float BulletRad;
-	float BulletHeight;
-	float BulletWidth;
-	float BulletBaseSpeed;
-	Vector2 BulletSize;
+	float mBulletHeight;
+	float mBulletWidth;
+	float mBulletBaseSpeed;
+	Vector2 mBulletSize;
 
-	Rectangle BulletRect;
-	Rectangle BulletDest;
-	Vector2 BulletCentre;
+	Rectangle mBulletRect;
+	Rectangle mBulletDest;
+	Vector2 mBulletCentre;
 
-	Texture2D BulletTxt;
-	Image BulletImg;
-
+	Texture2D mBulletTxt;
 };
 #endif // _BULLET_

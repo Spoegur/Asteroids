@@ -1,21 +1,22 @@
-#include "Game.h"
 #include "raylib.h"
-#include "Ship.h"
-#include "Asteroid.h"
-#include "Bullet.h"
 #include "raymath.h"
-#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include "Game.h"
+#include "Ship.h"
+#include "Asteroid.h"
+#include "Bullet.h"
+#include "Timer.h"
 
 Ship ship;
 Bullet bullet;
 Asteroid asteroid;
-Lives life;
+Lives playerLives;
+Timer timer;
 std::vector <Asteroid> asteroids;
 std::vector <Bullet> bullets;
 std::vector <Lives> lives;
@@ -51,7 +52,7 @@ void Game::Init()
 	ship.SetSize();
 	ship.SetPosition();
 	bullet.Load();
-	life.LoadLives();
+	playerLives.LoadLives();
 }
 
 bool Game::GameShouldClose() const
@@ -74,7 +75,7 @@ void Game::Update()
 
 	static float BulletTime = GetTime();
 	
-	ship.UpdateShip();
+	ship.UpdateShip(timer, lives);
 
 	if (IsKeyDown(KEY_SPACE)) {
 		if (BulletTime < GetTime()) {
@@ -85,15 +86,14 @@ void Game::Update()
 	}
 	bullet.UpdateBullet(bullets);
 	
-	if (EntityMax == false) {
+	if (entityMax == false) {
 		asteroid.Load();
 		asteroid.SetAsteroidSize();
 		asteroid.SetAsteroidPosition(ship);
 		asteroids.push_back(asteroid);
 	}
 
-	asteroid.UpdateAsteroid(asteroids, ship);
-	GameOver();
+	asteroid.UpdateAsteroid(asteroids, ship, bullets);
 }
 
 void Game::OnDraw()
@@ -103,44 +103,41 @@ void Game::OnDraw()
 
 	for (int i = 0; i < lives.size(); i++)
 	{
-		DrawTexture(lives[i].Livestxt, lives[i].Livespos.x, lives[i].Livespos.y, WHITE);
+		DrawTexture(lives[i].livesTxt, lives[i].livesPos.x, lives[i].livesPos.y, WHITE);
 	}
 }
 
 void Game::OnUpdate()
 {
-	if (asteroids.size() == 5) {
-		EntityMax = true;
+	if (asteroids.size() == 0) {
+		entityMax = false;
 	}
-	else if (asteroids.size() < 5) {
-		EntityMax = false;
+	if (asteroids.size() >= 8) {
+		entityMax = true;
+	}
+	if (asteroids.size() < 0) {
+		entityMax = false;
 	}
 }
 
 void Lives::LoadLives()
 {
-	life.Livestxt = LoadTexture("../Images/GameImages/ship.png");
+	playerLives.livesTxt = LoadTexture("../Images/GameImages/ship.png");
 	for (int i = 0; i < 3; i++)
 	{
-		lives.push_back(life);
+		lives.push_back(playerLives);
 		if (i == 0)
 		{
-			lives[i].Livespos = { 3, 24 };
+			lives[i].livesPos = { 3, 24 };
 		}
 		else if (i == 1) 
 		{
-			lives[i].Livespos = { 53, 24 };
+			lives[i].livesPos = { 53, 24 };
 		}
 		else if (i == 2)
 		{
-			lives[i].Livespos = { 103, 24 };
+			lives[i].livesPos = { 103, 24 };
 		}
 	}
 }
-
-void Game::GameOver() {
-	if (ship.lives < lives.size()) {
-		lives.erase(lives.begin() + ship.lives);
-	}
-};
 

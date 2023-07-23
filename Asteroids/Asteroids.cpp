@@ -1,13 +1,11 @@
-#include "raylib.h"
-#include "Game.h"
-#include "Ship.h"
-#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <assert.h>
+#include "raylib.h"
+#include "Game.h"
 
 using namespace std;
 

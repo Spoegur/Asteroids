@@ -1,26 +1,22 @@
-#include "Game.h"
-#include "Ship.h"
 #include "raylib.h"
 #include "raymath.h"
-#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <assert.h>
-
-Timer timer;
+#include "Ship.h"
 
 Ship::Ship()
 {
-	ShipSpeed = 10;
-	ShipAcceleration = 0;
-	ShipMaxAcceleration = 50;
-	ShipRotationSpeed = 250;
-	ShipDrag = 0.2f;
-	startTimer = true;
-	lives = 3;
+	Ship::shipSpeed = 10;
+	Ship::mShipAcceleration = 0;
+	Ship::mShipMaxAcceleration = 50;
+	Ship::mShipRotationSpeed = 250;
+	Ship::mShipDrag = 0.2f;
+	Ship::mStartTimer = true;
+	Ship::shipLives = 3;
 }
 
 Ship::~Ship()
@@ -29,120 +25,156 @@ Ship::~Ship()
 
 void Ship::Load()
 {
-	texture = LoadTexture("../Images/GameImages/ship.png");
-	image = LoadImage("../Images/GameImages/ship.png");
+	Ship::mShipTexture = LoadTexture("../Images/GameImages/ship.png");
+
+	Ship::mDamage1 = LoadTexture("../Images/GameImages/ShipDamageLarge.png");
+	Ship::mDamage2 = LoadTexture("../Images/GameImages/ShipDamageMedium.png");
+	Ship::mDamage3 = LoadTexture("../Images/GameImages/ShipDamageSmall.png");
+
+	Ship::mVecDamageTxt = { Ship::mDamage3, Ship::mDamage2, Ship::mDamage1 };
+}
+
+void Ship::ShipReset()
+{
+	SetPosition();
+	Ship::mShipAcceleration = 0;
+	Ship::shipRotation = 0;
+	Load();
 }
 
 void Ship::SetSize()
 {
-	ShipRect = { 0, 0, (float)texture.width, (float) texture.height };
-	Centre = { (float)texture.width / 2, (float)texture.height / 2 };
+	Ship::shipRect = { 0, 0, (float)Ship::mShipTexture.width, (float)Ship::mShipTexture.height };
+	Ship::shipCentre = { (float)Ship::mShipTexture.width / 2, (float)Ship::mShipTexture.height / 2 };
 
-	ShipRadius = (float)texture.width / 2;
+	Ship::shipRadius = (float)Ship::mShipTexture.width / 2;
 }
 
 Vector2 Ship::SetPosition()
 {
-	Position = { (float)(GetScreenWidth() / 2), (float)GetScreenHeight() / 2 };
+	Ship::shipPosition = { (float)(GetScreenWidth() / 2), (float)GetScreenHeight() / 2 };
 
-	return Position;
+	return shipPosition;
 }
 
 void Ship::DrawShip()
 {
 	OnDrawShip();
+	DrawTexturePro(Ship::mShipTexture, Ship::shipRect, Ship::destination, Ship::shipCentre, Ship::shipRotation, DARKBROWN);
 }
 
-void Ship::UpdateShip()
+void Ship::UpdateShip(Timer timer, std::vector <Lives> &rVecLives)
 {
 	static Timer shipTimer = { 0 };
 	float shipLife = 0;
 
-	if (ShipAcceleration > 0 && startTimer == true) {
+	static Timer resetTimer = { 0 };
+	float resetLife = 3;
+
+	if (Ship::mShipAcceleration > 0 && Ship::mStartTimer == true) {
 		timer.StartTimer(&shipTimer, shipLife);
-		startTimer = false;
+		Ship::mStartTimer = false;
 	}
 
 	OnUpdateShip();
 
-	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
+	if (Ship::destroyed != true) {
 
-		if (Facing != Rotation) {
-			ShipAcceleration -= timer.getTime(&shipTimer);
-			if (ShipAcceleration <= 0) {
-				Facing = Rotation;
-				ShipAcceleration = 0;
+		if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
+
+			if (Ship::mFacing != Ship::shipRotation) {
+				Ship::mShipAcceleration -= timer.getTime(&shipTimer);
+				if (Ship::mShipAcceleration <= 0) {
+					Ship::mFacing = Ship::shipRotation;
+					Ship::mShipAcceleration = 0;
+				}
+			}
+			else if (Ship::mShipAcceleration < Ship::mShipMaxAcceleration) {
+				Ship::mShipAcceleration += 2 * (Ship::mShipDrag * 2);
+			}
+			if (Ship::mShipAcceleration > Ship::mShipMaxAcceleration) {
+				Ship::mShipAcceleration = Ship::mShipMaxAcceleration;
 			}
 		}
-		else if (ShipAcceleration < ShipMaxAcceleration) {
-			ShipAcceleration += 2 * (ShipDrag * 2);
-		}
-		if (ShipAcceleration > ShipMaxAcceleration){
-			ShipAcceleration = ShipMaxAcceleration;
-		}
-	}
-	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
+		if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
 
-		if (ShipAcceleration > 0) {
-			ShipAcceleration -= 0.8f;
+			if (Ship::mShipAcceleration > 0) {
+				Ship::mShipAcceleration -= 0.8f;
+			}
+			else if (Ship::mShipAcceleration < 0) {
+				Ship::mShipAcceleration = 0;
+			}
 		}
-		else if (ShipAcceleration < 0) {
-			ShipAcceleration = 0;
+		if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
+
+			Ship::shipRotation += Ship::mShipRotationSpeed * GetFrameTime();
 		}
-	}
-	if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
+		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
 
-		Rotation += ShipRotationSpeed * GetFrameTime();
-	}
-	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
-
-		Rotation -= ShipRotationSpeed * GetFrameTime();
+			Ship::shipRotation -= Ship::mShipRotationSpeed * GetFrameTime();
+		}
 	}
 
-	if (Rotation > 360) {
-		Rotation -= 360;
+	if (Ship::shipRotation > 360) {
+		Ship::shipRotation -= 360;
 	}
-	if (Rotation < -360) {
-		Rotation += 360;
+	if (Ship::shipRotation < -360) {
+		Ship::shipRotation += 360;
 	}
 	
-	if (startTimer == false) {
-		timer.UpdateTimer(&shipTimer);
+	if (Ship::mStartTimer == false) {
+		timer.UpdateStopWatch(&shipTimer);
 	}
 	
-	if (ShipAcceleration <= 0) {
-		startTimer = true;
+	if (Ship::mShipAcceleration <= 0) {
+		Ship::mStartTimer = true;
 	}
 
-	if (Position.x > GetScreenWidth() + texture.height) {
-		Position.x = -(texture.height);
+	if (Ship::shipPosition.x > GetScreenWidth() + Ship::mShipTexture.height) {
+		Ship::shipPosition.x = -(Ship::mShipTexture.height);
 	}
-	else if (Position.x < -(texture.height)) {
-		Position.x = GetScreenWidth() + texture.height;
-	}
-
-	if (Position.y > GetScreenHeight() + texture.height) {
-		Position.y = -(texture.height);
-	}
-	else if (Position.y < -(texture.height)) {
-		Position.y = GetScreenHeight() + texture.height;
+	else if (Ship::shipPosition.x < -(Ship::mShipTexture.height)) {
+		Ship::shipPosition.x = GetScreenWidth() + Ship::mShipTexture.height;
 	}
 
-	Position.y -= Speed.y * ShipAcceleration;
-	Position.x += Speed.x * ShipAcceleration;
+	if (Ship::shipPosition.y > GetScreenHeight() + Ship::mShipTexture.height) {
+		Ship::shipPosition.y = -(Ship::mShipTexture.height);
+	}
+	else if (Ship::shipPosition.y < -(Ship::mShipTexture.height)) {
+		Ship::shipPosition.y = GetScreenHeight() + Ship::mShipTexture.height;
+	}
 
+	if (Ship::shipLives < rVecLives.size()) {
+		if (rVecLives.size() > 0) {
+			rVecLives.erase(rVecLives.begin() + Ship::shipLives);
+			Ship::mShipTexture = Ship::mVecDamageTxt[Ship::shipLives];
+			Ship::destroyed = true;
+			timer.StartTimer(&resetTimer, resetLife);
+		}
+	}
+	else if (Ship::destroyed && timer.TimerDone(&resetTimer))
+	{
+		Ship::destroyed = false;
+		ShipReset();
+	}
+	else
+	{
+		timer.UpdateTimer(&resetTimer);
+	}
+
+	Ship::shipPosition.y -= Ship::vecShipSpeed.y * Ship::mShipAcceleration;
+	Ship::shipPosition.x += Ship::vecShipSpeed.x * Ship::mShipAcceleration;
 
 }
 
 void Ship::OnDrawShip()
 {
-	Destination = { Position.x, Position.y, ShipRect.width, ShipRect.height };
-	DrawTexturePro(texture, ShipRect, Destination, Centre, Rotation, WHITE);
+	Ship::destination = { Ship::shipPosition.x, Ship::shipPosition.y, Ship::shipRect.width, Ship::shipRect.height };
 }
 
 void Ship::OnUpdateShip()
 {
-	Speed.x = sin(Facing * DEG2RAD) * ShipSpeed * GetFrameTime();
-	Speed.y = cos(Facing * DEG2RAD) * ShipSpeed * GetFrameTime();
+	Ship::vecShipSpeed.x = sin(Ship::mFacing * DEG2RAD) * Ship::shipSpeed * GetFrameTime();
+	Ship::vecShipSpeed.y = cos(Ship::mFacing * DEG2RAD) * Ship::shipSpeed * GetFrameTime();
 }
 

@@ -1,6 +1,5 @@
 #include "raylib.h"
 #include "raymath.h"
-#include "Timer.h"
 #include <list>
 #include <fstream>
 #include <vector>
@@ -11,33 +10,33 @@
 
 Bullet::Bullet()
 {
-	Bullet::BulletBaseSpeed = 200.0f;
+	Bullet::mBulletBaseSpeed = 200.0f;
 }
 
 Bullet::~Bullet() noexcept	
 {
 }
 
-void Bullet::DrawBullet(std::vector <Bullet> bullets)
+void Bullet::DrawBullet(std::vector <Bullet> vecBullets)
 {
-	for (int i = 0; i < bullets.size(); i++) {
-		bullets[i].BulletDest = { bullets[i].BulletPos.x, bullets[i].BulletPos.y, bullets[i].BulletRect.width, bullets[i].BulletRect.height };
-		DrawTexturePro(bullets[i].BulletTxt, bullets[i].BulletRect, bullets[i].BulletDest, bullets[i].BulletCentre, bullets[i].BulletRot, PINK);
+	for (int i = 0; i < vecBullets.size(); i++) {
+		vecBullets[i].mBulletDest = { vecBullets[i].bulletPos.x, vecBullets[i].bulletPos.y, vecBullets[i].mBulletRect.width, vecBullets[i].mBulletRect.height };
+		DrawTexturePro(vecBullets[i].mBulletTxt, vecBullets[i].mBulletRect, vecBullets[i].mBulletDest, vecBullets[i].mBulletCentre, vecBullets[i].bulletRot, PINK);
 	}
 }
 
-void Bullet::UpdateBullet(std::vector <Bullet> &bullets)
+void Bullet::UpdateBullet(std::vector <Bullet> &rVecBullets)
 {
-	for (int i = 0; i < bullets.size(); i++) {
+	for (int i = 0; i < rVecBullets.size(); i++) {
 		
-		if (bullets[i].BulletPos.x < -bullets[i].BulletRad || bullets[i].BulletPos.x > GetScreenWidth() + bullets[i].BulletRad || bullets[i].BulletPos.y < -bullets[i].BulletRad || bullets[i].BulletPos.y > GetScreenHeight() + bullets[i].BulletRad) 
+		if (rVecBullets[i].bulletPos.x < -rVecBullets[i].bulletRad || rVecBullets[i].bulletPos.x > GetScreenWidth() + rVecBullets[i].bulletRad || rVecBullets[i].bulletPos.y < -rVecBullets[i].bulletRad || rVecBullets[i].bulletPos.y > GetScreenHeight() + rVecBullets[i].bulletRad) 
 		{
-			bullets.erase(bullets.begin() + i);
+			rVecBullets.erase(rVecBullets.begin() + i);
 		}
 		else
 		{
-			bullets[i].BulletPos.x += bullets[i].BulletSpeed.x * GetFrameTime();
-			bullets[i].BulletPos.y -= bullets[i].BulletSpeed.y * GetFrameTime();
+			rVecBullets[i].bulletPos.x += rVecBullets[i].bulletSpeed.x * GetFrameTime();
+			rVecBullets[i].bulletPos.y -= rVecBullets[i].bulletSpeed.y * GetFrameTime();
 		}
 	}
 }
@@ -51,30 +50,29 @@ void Bullet::Shoot(Ship player)
 
 void Bullet::SetBulletPos(Ship player)
 {
-	Bullet::BulletPos = { player.Position.x + sin(player.Rotation * DEG2RAD) * player.ShipRect.width + 1, player.Position.y - cos(player.Rotation * DEG2RAD) * player.ShipRect.height };
-	Bullet::BulletRot = player.Rotation;
+	Bullet::bulletPos = { player.shipPosition.x + sin(player.shipRotation * DEG2RAD) * player.shipRect.width + 1, player.shipPosition.y - cos(player.shipRotation * DEG2RAD) * player.shipRect.height };
+	Bullet::bulletRot = player.shipRotation;
 }
 
 void Bullet::SetBulletSpeed(Ship player)
 {
-	Bullet::BulletSpeed.x = Bullet::BulletBaseSpeed * sin(player.Rotation*DEG2RAD) * 200 * GetFrameTime();
-	Bullet::BulletSpeed.y = Bullet::BulletBaseSpeed * cos(player.Rotation*DEG2RAD) * 200 * GetFrameTime();
+	Bullet::bulletSpeed.x = Bullet::mBulletBaseSpeed * sin(player.shipRotation*DEG2RAD) * 200 * GetFrameTime();
+	Bullet::bulletSpeed.y = Bullet::mBulletBaseSpeed * cos(player.shipRotation*DEG2RAD) * 200 * GetFrameTime();
 }
 
 void Bullet::SetBulletSize(Ship player)
 {
-	Bullet::BulletHeight = Bullet::BulletTxt.height / 1.1;
-	Bullet::BulletWidth = Bullet::BulletTxt.width;
+	Bullet::mBulletHeight = Bullet::mBulletTxt.height / 1.1;
+	Bullet::mBulletWidth = Bullet::mBulletTxt.width;
 
-	Bullet::BulletSize = { Bullet::BulletHeight, Bullet::BulletWidth };
-	Bullet::BulletRad = Bullet::BulletWidth / 2;
+	Bullet::mBulletSize = { Bullet::mBulletHeight, Bullet::mBulletWidth };
+	Bullet::bulletRad = Bullet::mBulletWidth / 2;
 
-	Bullet::BulletRect = { 1, 1, (float)Bullet::BulletWidth, (float)Bullet::BulletHeight };
-	Bullet::BulletCentre = { (float)Bullet::BulletWidth / 2, (float)Bullet::BulletHeight / 2 };
+	Bullet::mBulletRect = { 1, 1, (float)Bullet::mBulletWidth, (float)Bullet::mBulletHeight };
+	Bullet::mBulletCentre = { (float)Bullet::mBulletWidth / 2, (float)Bullet::mBulletHeight / 2 };
 }
 
 void Bullet::Load()
 {
-	BulletTxt = LoadTexture("../Images/GameImages/LaserPurple(1).png");
-	BulletImg = LoadImage("../Images/GameImages/LaserPurple(1).png");
+	mBulletTxt = LoadTexture("../Images/GameImages/LaserPurple(1).png");
 }
