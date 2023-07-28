@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::shipRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::shipRect</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::shipRotation' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::shipRotation</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::vecShipSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::vecShipSpeed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::destination' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::destination</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::mFacing' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::mFacing</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::destroyed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::destroyed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::shipRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::shipRadius</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::mShipTexture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::mShipTexture</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::shipPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::shipPosition</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::shipCentre' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::shipCentre</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::mDamage1' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::mDamage1</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::mDamage3' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::mDamage3</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\AIE\vss Example\Assessments\Assesment Tasks C++\Assesment Task 4 C++\Asteroids\Asteroids\</FILEPATH>
+      <FILENAME>Ship.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Ship::mDamage2' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Ship::{ctor}</FUNCTION>
+    <DECORATED>??0Ship@@QEAA@XZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Ship::mDamage2</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,496 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidRadius' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidRadius"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mBigAsteroidTxt' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mBigAsteroidTxt"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::vecAsteroidSpeed' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::vecAsteroidSpeed"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mMediumAsteroidTxt' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mMediumAsteroidTxt"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidRect' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidRect"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidWidth"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidCentre' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidCentre"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidTxt' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidTxt"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidHeight' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidHeight"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mDestroyed' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mDestroyed"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::asteroidPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::asteroidPosition"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mSmallAsteroidTxt' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mSmallAsteroidTxt"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Asteroid::mAsteroidDest' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Asteroid::{ctor}",
+                  "decoratedName": "??0Asteroid@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Asteroid::mAsteroidDest"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32217.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Asteroid.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "472196cb94945b18fd142c62427a5c6c249b86682bdb833f17d0146b5f829ce1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tomer/documents/github/raylib/out/build/x64-debug/raylib/include/raylib.h"
+          },
+          "hashes": {
+            "sha-256": "8a92719220d9e680b8c8343158760e4924073d12726962cc32f064aaf4540b89"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tomer/documents/github/raylib/out/build/x64-debug/raylib/include/raymath.h"
+          },
+          "hashes": {
+            "sha-256": "9cfc6c49359f3758525266d738012294b9cc483226be3e5e798f110af8b2bd72"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/asteroid.h"
+          },
+          "hashes": {
+            "sha-256": "8062e801c88af5cdae033924f48e563810a1c6fe2dc172994b339250db62a2b1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/ship.h"
+          },
+          "hashes": {
+            "sha-256": "290869e0ac88f0330464488922da112e26c29d024e9fa4483ba10cff6dac59ee"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/timer.h"
+          },
+          "hashes": {
+            "sha-256": "80aba3aad60bdb6ab3c8ba5e2fffa0f13e046fed313b300b28f88e728fa8c2b0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/game.h"
+          },
+          "hashes": {
+            "sha-256": "90f7bc9543fdf14f5d4241c0dd08da18146bac6b8899df0ba34f2992c7f57bc9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/bullet.h"
+          },
+          "hashes": {
+            "sha-256": "609247848ff7568b10b82869e61153ca8997aac7a177987fceae62ffa01ab884"
+          }
+        }
+      ]
+    }
+  ]
+}

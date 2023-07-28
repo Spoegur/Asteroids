@@ -56,6 +56,7 @@ bool Timer::TimerDone(Timer* timer)
 	}
 }
 
+// Gets the timers current time
 float Timer::getTime(Timer* timer)
 {
 	return timer->lifetime;

@@ -18,8 +18,8 @@ public:
 	Bullet();
 	~Bullet() noexcept;
 
-	Vector2 bulletPos;
-	Vector2 bulletSpeed;
+	Vector2 bulletPos; 
+	Vector2 bulletSpeed; 
 	float bulletRot;
 	float bulletRad;
 
@@ -29,8 +29,9 @@ public:
 
 	void SetBulletPos(Ship player);
 	void SetBulletSpeed(Ship player);
-	void SetBulletSize(Ship player);
+	void SetBulletSize();
 	void Load();
+	void Reset();
 
 private:
 	

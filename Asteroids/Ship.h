@@ -29,6 +29,8 @@ public:
 	float shipSpeed;
 	float shipRadius;
 	float shipLives;
+	int score;
+	float round;
 	bool destroyed;
 
 	void DrawShip();
@@ -38,6 +40,8 @@ public:
 	void SetSize();
 	void Load();
 	void ShipReset();
+
+	void Reset();
 
 private:
 

@@ -31,6 +31,7 @@ public:
 	void Load();
 	void SpawnAsteroid();
 	void AsteroidSplit(Asteroid &rAsteroid);
+	void Reset();
 
 private:
 	

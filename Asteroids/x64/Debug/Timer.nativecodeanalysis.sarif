@@ -1,0 +1,123 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Timer::lifetime' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Timer.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 12,
+                  "endColumn": 8
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Timer::{ctor}",
+                  "decoratedName": "??0Timer@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Timer::lifetime"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Timer::lifetime' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Timer.cpp"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 8,
+                  "endLine": 17,
+                  "endColumn": 8
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Timer::{ctor}",
+                  "decoratedName": "??0Timer@@QEAA@M@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Timer::lifetime"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32217.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/AIE/vss Example/Assessments/Assesment Tasks C++/Assesment Task 4 C++/Asteroids/Asteroids/Timer.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "09dcfe0221735c05c92e0abe3cf51f95254029ab38cb67d0eef5e4534fc12c39"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tomer/documents/github/raylib/out/build/x64-debug/raylib/include/raylib.h"
+          },
+          "hashes": {
+            "sha-256": "8a92719220d9e680b8c8343158760e4924073d12726962cc32f064aaf4540b89"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/tomer/documents/github/raylib/out/build/x64-debug/raylib/include/raymath.h"
+          },
+          "hashes": {
+            "sha-256": "9cfc6c49359f3758525266d738012294b9cc483226be3e5e798f110af8b2bd72"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/aie/vss example/assessments/assesment tasks c++/assesment task 4 c++/asteroids/asteroids/timer.h"
+          },
+          "hashes": {
+            "sha-256": "80aba3aad60bdb6ab3c8ba5e2fffa0f13e046fed313b300b28f88e728fa8c2b0"
+          }
+        }
+      ]
+    }
+  ]
+}

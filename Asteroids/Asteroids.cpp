@@ -17,7 +17,7 @@ int main()
     Game game{ ScreenWidth, ScreenHeight, "Asteroids" };
     game.Init();
     SetTargetFPS(60);
-    
+    // Main gameplay loop
     while (!game.GameShouldClose()) {
         
         game.Tick();

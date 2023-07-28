@@ -23,13 +23,17 @@ public:
 
 	void Init();
 
+	void GameReset();
+
+	void GameOver();
+
 	bool GameShouldClose() const;
 
 	Game(const Game& other) = delete;
 	Game& operator=(const Game& other) = delete;
 
 	bool entityMax;
-	bool Shoot;
+	bool gameOver;
 
 protected:
 	void Draw();
