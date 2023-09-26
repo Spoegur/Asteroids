@@ -22,7 +22,7 @@ std::vector <Asteroid> asteroids;
 std::vector <Bullet> bullets;
 std::vector <Lives> lives;
 
-Game::Game()
+Game::Game() // Default Contructor
 {
 	Game::gameOver = false;
 	Game::entityMax = false;
